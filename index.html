@@ -4,245 +4,178 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kalkulator Angka Kredit Jabatan Fungsional</title>
+<title>Kalkulator Angka Kredit Fungsional</title>
 <style>
 :root{
-  --navy:#132446;
+  --bg:#f3f6fb;--ink:#182940;
+  --muted:#64748b;--line:#e2e8f0;
   --blue:#2563eb;
-  --bg:#f3f6fb;
-  --line:#e1e8f2;
-  --muted:#64748b;
-  --green:#087c59;
 }
 *{box-sizing:border-box}
 body{
-  margin:0;
+  margin:0;background:var(--bg);color:var(--ink);
   font-family:Arial,Helvetica,sans-serif;
-  background:var(--bg);
-  color:#1b2941;
 }
 header{
-  background:linear-gradient(115deg,#142748,#245bd8);
+  padding:30px 20px;
+  background:linear-gradient(115deg,#10284c,#2563eb);
   color:#fff;
-  padding:27px 20px;
 }
-.head,.layout{max-width:1200px;margin:auto}
-header h1{font-size:25px;margin:0 0 7px}
-header p{font-size:13px;color:#deebff;margin:0}
+.wrap{max-width:1160px;margin:auto}
+header h1{margin:0 0 8px;font-size:26px}
+header p{margin:0;color:#dbeafe;font-size:13px}
 .layout{
+  max-width:1160px;margin:auto;padding:20px;
   display:grid;
-  grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);
-  align-items:start;
-  gap:18px;
-  padding:20px;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:18px;align-items:start;
 }
 .card{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:19px;
-  padding:22px;
-  min-width:0;
-  box-shadow:0 8px 25px #1a315008;
+  background:#fff;border:1px solid var(--line);
+  border-radius:18px;padding:23px;
+  box-shadow:0 8px 25px #172c4508;min-width:0;
 }
-h2{font-size:17px;margin:0 0 18px}
+h2{font-size:17px;margin:0 0 20px}
 .two{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:13px;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:12px;
 }
-.field{margin-bottom:16px}
+.field{margin-bottom:17px}
 label{
-  display:block;
-  font-size:13px;
-  font-weight:700;
+  display:block;font-size:13px;font-weight:700;
   margin-bottom:7px;
 }
 input,select{
-  width:100%;
-  min-width:0;
-  background:#fff;
-  border:1px solid #c8d3e3;
-  border-radius:11px;
-  padding:12px;
-  font-size:14px;
-  color:#1b2941;
+  width:100%;min-width:0;
+  border:1px solid #cbd5e1;border-radius:10px;
+  padding:12px;background:#fff;
+  color:var(--ink);font-size:14px;
 }
 input:focus,select:focus{
-  outline:2px solid #c6dcff;
+  outline:2px solid #bfdbfe;
   border-color:var(--blue);
 }
-input:disabled,select:disabled{
-  background:#f3f6fa;
-  color:#94a3b8;
+select:disabled{
+  background:#f1f5f9;color:#94a3b8;
 }
 hr{
-  border:0;
-  border-top:1px solid var(--line);
-  margin:19px 0;
+  border:0;border-top:1px solid var(--line);
+  margin:20px 0;
 }
 .skp{
   display:grid;
-  grid-template-columns:100px minmax(0,1fr) 75px;
-  align-items:center;
-  gap:10px;
-  margin-bottom:11px;
+  grid-template-columns:100px minmax(0,1fr) 62px;
+  gap:10px;align-items:center;margin-bottom:12px;
 }
-.skp .period{
-  font-size:11px;
-  color:var(--muted);
-  text-align:right;
+.skp label{margin:0}
+.period{
+  text-align:right;font-size:11px;color:var(--muted);
 }
 .hint{
-  font-size:12px;
-  color:var(--muted);
+  font-size:12px;color:var(--muted);
   line-height:1.55;
-  margin:5px 0 0;
-}
-.btn{
-  display:block;
-  width:100%;
-  border:0;
-  border-radius:12px;
-  padding:15px;
-  font-size:15px;
-  font-weight:800;
-  text-align:center;
-  text-decoration:none;
-  cursor:pointer;
-}
-.btn-calc{
-  background:#1e60e8;
-  color:#fff;
-  margin-top:18px;
-}
-.btn-calc:hover{background:#174ab9}
-.btn-file{
-  background:linear-gradient(110deg,#0d53c4,#3383fb);
-  color:#fff;
-  box-shadow:0 8px 20px #2563eb35;
-  margin-top:16px;
-}
-.btn-soft{
-  background:#edf2fa;
-  color:#314158;
-  margin-top:9px;
 }
 .hidden{display:none!important}
+.btn{
+  display:block;width:100%;border:0;
+  border-radius:12px;padding:15px;
+  font-size:15px;font-weight:800;
+  text-align:center;text-decoration:none;
+  cursor:pointer;
+}
+.calculate{
+  background:#2563eb;color:#fff;margin-top:18px;
+}
+.subtle{
+  background:#edf2f9;color:#334155;margin-top:10px;
+}
+.file{
+  background:linear-gradient(110deg,#1351c5,#3282f7);
+  color:#fff;margin-top:18px;
+  box-shadow:0 7px 19px #2563eb3b;
+}
 .blank{
-  border:1px dashed #c5d2e2;
-  border-radius:15px;
-  background:#f8faff;
-  text-align:center;
-  padding:55px 18px;
-  color:var(--muted);
+  padding:55px 20px;text-align:center;
+  border:1px dashed #cbd5e1;
+  border-radius:15px;background:#f8fafc;
+  color:var(--muted);line-height:1.6;
 }
-.blank .emoji{font-size:34px}
-.blank h3{font-size:16px;color:#334155}
-.blank p{font-size:13px;line-height:1.6}
-.recommend{
-  padding:22px;
-  border-radius:17px;
-  border:2px solid #e9ad45;
-  background:#fff9eb;
-  margin-bottom:16px;
+.blank strong{color:var(--ink)}
+.advice{
+  padding:23px;border:2px solid #e6a73c;
+  border-radius:17px;background:#fff8e7;
+  margin-bottom:17px;
 }
-.recommend.good{
-  border-color:#1ea776;
-  background:#eafaf2;
+.advice.good{
+  border-color:#159a6b;background:#eafbf2;
 }
-.recommend.neutral{
-  border-color:#9baec7;
-  background:#f1f5f9;
+.advice.neutral{
+  border-color:#94a3b8;background:#f1f5f9;
 }
-.rec-overline{
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:.6px;
+.kicker{
+  font-size:12px;font-weight:900;
+  letter-spacing:.5px;
 }
-.rec-title{
-  font-size:23px;
-  font-weight:850;
-  line-height:1.35;
-  margin:12px 0;
+.advice h3{
+  margin:12px 0;font-size:23px;line-height:1.32;
 }
-.rec-desc{
-  font-size:14px;
-  line-height:1.65;
-  margin:0;
+.advice p{
+  margin:0;font-size:14px;line-height:1.65;
 }
 .progress{
-  height:10px;
-  background:#e0e7ef;
-  border-radius:20px;
-  margin-top:16px;
-  overflow:hidden;
+  height:10px;border-radius:20px;
+  background:#dce4ec;overflow:hidden;
+  margin-top:17px;
 }
-.progress>div{
-  height:100%;
-  background:#f59e0b;
-  width:0;
-  border-radius:20px;
+.progress span{
+  display:block;height:100%;width:0;
+  background:#f59e0b;border-radius:20px;
 }
 .summary{
-  padding:23px;
-  border-radius:16px;
-  background:#ebfaf3;
-  text-align:center;
+  background:#eafaf2;border-radius:15px;
+  padding:22px;text-align:center;
 }
 .summary small{
-  font-weight:800;
-  color:#33765d;
-  font-size:12px;
+  font-size:12px;font-weight:800;color:#237657;
 }
-.big{
-  font-size:42px;
-  font-weight:850;
-  color:var(--green);
-  margin:8px 0 18px;
+.total{
+  font-size:45px;color:#087b57;
+  font-weight:850;margin:10px 0 17px;
 }
 .line{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  border-top:1px solid #cbe9db;
-  padding:10px 0;
-  font-size:13px;
-  text-align:left;
+  display:flex;justify-content:space-between;
+  gap:10px;border-top:1px solid #c7e9d8;
+  padding:10px 0;font-size:13px;text-align:left;
 }
-.line strong{white-space:nowrap}
-.foot{
-  font-size:11px;
-  line-height:1.6;
-  color:var(--muted);
-  margin:13px 0 0;
+.note{
+  margin:14px 0 0;font-size:11px;
+  color:var(--muted);line-height:1.6;
 }
 @media(max-width:820px){
   .layout{
     grid-template-columns:1fr;
-    padding:12px;
-    gap:12px;
+    padding:12px;gap:12px;
   }
   .card{padding:18px}
-  header{padding:23px 16px}
+  header{padding:22px 16px}
   header h1{font-size:21px}
-  .rec-title{font-size:20px}
+  .advice h3{font-size:20px}
 }
 @media(max-width:380px){
   .two{grid-template-columns:1fr}
   .skp{
-    grid-template-columns:74px minmax(0,1fr) 56px;
-    gap:7px;
+    grid-template-columns:78px minmax(0,1fr) 52px;
+    gap:6px;
   }
-  .skp .period{font-size:10px}
-  .big{font-size:36px}
+  .period{font-size:10px}
+  .total{font-size:37px}
 }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="head">
+  <div class="wrap">
     <h1>Kalkulator Angka Kredit</h1>
     <p>PAK Integrasi • SKP 2023–2025 • SKP 2026 TW III</p>
   </div>
@@ -260,9 +193,10 @@ hr{
         <option value="">Pilih jenjang</option>
       </select>
     </div>
+
     <div class="field">
       <label for="tmt">TMT Fungsional</label>
-      <input id="tmt" type="date"
+      <input type="date" id="tmt"
              min="1950-01-01" max="2026-09-30">
     </div>
   </div>
@@ -274,35 +208,32 @@ hr{
     </select>
   </div>
 
-  <div class="field hidden" id="integrasiBox">
-    <label for="integrasi">PAK Integrasi</label>
-    <input id="integrasi" type="number" min="0"
-           step="any" placeholder="Isi nilai PAK Integrasi">
-  </div>
-
-  <div class="field hidden" id="awalBox">
-    <label for="akAwal">AK Awal yang Diakui pada Jenjang Baru</label>
-    <input id="akAwal" type="number" min="0"
-           step="any" placeholder="Isi 0 jika tidak ada">
-    <p class="hint">
-      Tidak otomatis mengambil angka kredit sebelum kenaikan jenjang.
-    </p>
+  <!--
+    PAK Integrasi hanya muncul apabila
+    TMT Fungsional <= 31 Desember 2022.
+  -->
+  <div class="field hidden" id="pakBox">
+    <label for="pak">Nilai PAK Integrasi</label>
+    <input type="number" id="pak"
+           min="0" step="any"
+           placeholder="Masukkan nilai PAK Integrasi">
   </div>
 
   <hr>
+
   <h2>02 — Nilai SKP</h2>
   <div id="skpContainer"></div>
 
   <p class="hint">
-    Tahun sebelum TMT tidak dihitung.
-    SKP 2026 TW III maksimal 9/12.
-    Semua angka hasil ditampilkan dua desimal.
+    SKP 2026 TW III dihitung maksimal 9/12.
+    Hasil ditampilkan dengan dua angka desimal.
   </p>
 
-  <button type="button" class="btn btn-calc" id="hitung">
+  <button class="btn calculate" type="button" id="hitung">
     Hitung Total AK
   </button>
-  <button type="button" class="btn btn-soft" id="reset">
+
+  <button class="btn subtle" type="button" id="reset">
     Kosongkan Semua
   </button>
 </section>
@@ -310,488 +241,575 @@ hr{
 <section class="card" id="hasilCard">
   <h2>03 — Hasil &amp; Anjuran</h2>
 
-  <div class="blank" id="belum">
-    <div class="emoji">📊</div>
-    <h3>Belum Ada Perhitungan</h3>
-    <p>Lengkapi isian, lalu tekan <b>Hitung Total AK</b>.</p>
+  <div class="blank" id="kosong">
+    📊
+    <p>
+      <strong>Belum ada perhitungan.</strong>
+      Lengkapi data, lalu tekan Hitung Total AK.
+    </p>
   </div>
 
   <div id="hasil" class="hidden">
-    <div id="anjuran" class="recommend" aria-live="polite">
-      <div class="rec-overline">✦ ANJURAN OTOMATIS</div>
-      <div class="rec-title" id="judulAnjuran"></div>
-      <p class="rec-desc" id="teksAnjuran"></p>
-      <div class="progress"><div id="progres"></div></div>
+
+    <div class="advice" id="anjuran">
+      <div class="kicker">✦ ANJURAN OTOMATIS</div>
+      <h3 id="judul"></h3>
+      <p id="deskripsi"></p>
+      <div class="progress">
+        <span id="bar"></span>
+      </div>
     </div>
 
     <div class="summary">
       <small>TOTAL ANGKA KREDIT</small>
-      <div class="big" id="total">0,00</div>
-      <div class="line">
-        <span>AK Awal</span>
-        <strong id="hasilAwal">0,00</strong>
+      <div class="total" id="total">0,00</div>
+
+      <div class="line hidden" id="pakLine">
+        <span>PAK Integrasi</span>
+        <strong id="hasilPak">0,00</strong>
       </div>
+
       <div class="line">
-        <span>Konversi 2023</span>
+        <span>SKP 2023</span>
         <strong id="hasil2023">0,00</strong>
       </div>
+
       <div class="line">
-        <span>Konversi 2024</span>
+        <span>SKP 2024</span>
         <strong id="hasil2024">0,00</strong>
       </div>
+
       <div class="line">
-        <span>Konversi 2025</span>
+        <span>SKP 2025</span>
         <strong id="hasil2025">0,00</strong>
       </div>
+
       <div class="line">
-        <span>Konversi 2026 TW III</span>
+        <span>SKP 2026 TW III</span>
         <strong id="hasil2026">0,00</strong>
       </div>
     </div>
 
-    <button type="button" class="btn btn-soft" id="salin">
+    <button class="btn subtle" type="button" id="salin">
       Salin Hasil
     </button>
   </div>
 
-  <a class="btn btn-file"
+  <a class="btn file"
      href="https://script.google.com/macros/s/AKfycbwqBTIpCs6qGOQJUioOHCftgomo9S_9dCA4TfwhsMR_SrdR2_svE0waIrisc3F325v3/exec"
      target="_blank" rel="noopener noreferrer">
     📄 Buat File Angka Kredit ↗
   </a>
 
-  <p class="foot">
-    Simulasi berdasarkan tabel jenjang dan rentang AK.
-    Kenaikan pangkat/jenjang tetap memerlukan verifikasi PAK
-    resmi dan syarat kepegawaian.
+  <p class="note">
+    Hasil merupakan simulasi berdasarkan tabel yang digunakan.
+    Periksa ketentuan dan PAK resmi sebelum proses kenaikan
+    pangkat atau jenjang.
   </p>
 </section>
-
 </main>
 
 <script>
+
+// ======================================
+// DATA JABATAN FUNGSIONAL
+// ======================================
+
 const DATA=[
-  {j:"Terampil",g:"Pengatur II/c",min:0,max:19,k:5},
-  {j:"Terampil",g:"Pengatur Tk 1 II/d",min:20,max:40,k:5},
-  {j:"Mahir",g:"Penata Muda III/a",min:41,max:49,k:12.5},
-  {j:"Mahir",g:"Penata Muda Tk 1 III/b",min:50,max:100,k:12.5},
-  {j:"Penyelia",g:"Penata III/c",min:101,max:199,k:25},
-  {j:"Penyelia",g:"Penata Tk 1 III/d",min:200,max:9999,k:25},
-  {j:"Ahli Pertama",g:"Penata Muda III/a",min:0,max:49,k:12.5},
-  {j:"Ahli Pertama",g:"Penata Muda Tk 1 III/b",min:50,max:100,k:12.5},
-  {j:"Ahli Muda",g:"Penata III/c",min:0,max:99,k:25},
-  {j:"Ahli Muda",g:"Penata Tk 1 III/d",min:100,max:200,k:25},
-  {j:"Ahli Madya",g:"Pembina IV/a",min:0,max:149,k:37.5},
-  {j:"Ahli Madya",g:"Pembina Tk 1 IV/b",min:150,max:299,k:37.5},
-  {j:"Ahli Madya",g:"Pembina Utama Muda IV/c",min:300,max:450,k:37.5}
+  {j:'Terampil',g:'Pengatur II/c',min:0,k:5},
+  {j:'Terampil',g:'Pengatur Tk 1 II/d',min:20,k:5},
+
+  {j:'Mahir',g:'Penata Muda III/a',min:41,k:12.5},
+  {j:'Mahir',g:'Penata Muda Tk 1 III/b',min:50,k:12.5},
+
+  {j:'Penyelia',g:'Penata III/c',min:101,k:25},
+  {j:'Penyelia',g:'Penata Tk 1 III/d',min:200,k:25},
+
+  {j:'Ahli Pertama',g:'Penata Muda III/a',min:0,k:12.5},
+  {j:'Ahli Pertama',g:'Penata Muda Tk 1 III/b',min:50,k:12.5},
+
+  {j:'Ahli Muda',g:'Penata III/c',min:0,k:25},
+  {j:'Ahli Muda',g:'Penata Tk 1 III/d',min:100,k:25},
+
+  {j:'Ahli Madya',g:'Pembina IV/a',min:0,k:37.5},
+  {j:'Ahli Madya',g:'Pembina Tk 1 IV/b',min:150,k:37.5},
+  {j:'Ahli Madya',g:'Pembina Utama Muda IV/c',min:300,k:37.5}
 ];
 
-const RATING=[
-  {name:"Sangat Baik",factor:1.5},
-  {name:"Baik",factor:1},
-  {name:"Butuh Perbaikan",factor:.75},
-  {name:"Kurang",factor:.5},
-  {name:"Sangat Kurang",factor:.25}
+const PREDIKAT=[
+  ['Sangat Baik',1.5],
+  ['Baik',1],
+  ['Butuh Perbaikan',0.75],
+  ['Kurang',0.5],
+  ['Sangat Kurang',0.25]
 ];
 
 const NEXT={
-  Terampil:["Mahir",41],
-  Mahir:["Penyelia",101],
-  "Ahli Pertama":["Ahli Muda",100],
-  "Ahli Muda":["Ahli Madya",200],
-  "Ahli Madya":["Ahli Utama",450]
+  Terampil:['Mahir',41],
+  Mahir:['Penyelia',101],
+  'Ahli Pertama':['Ahli Muda',100],
+  'Ahli Muda':['Ahli Madya',200],
+  'Ahli Madya':['Ahli Utama',450]
 };
 
 const $=id=>document.getElementById(id);
 
-const fmt=x=>Number(x).toLocaleString("id-ID",{
+const fmt=n=>Number(n).toLocaleString('id-ID',{
   minimumFractionDigits:2,
   maximumFractionDigits:2
 });
 
-// =====================================
-// VALIDASI TANGGAL - PERBAIKAN UTAMA
-// Tidak menggunakan toISOString()
-// sehingga aman untuk zona waktu WIB.
-// =====================================
+// ======================================
+// VALIDASI TANGGAL TANPA UTC
+// ======================================
 
 function parseDate(value){
-  const match=/^(\d{4})-(\d{2})-(\d{2})$/.exec(value||"");
-  if(!match)return null;
+  const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(value||'');
 
-  const y=Number(match[1]);
-  const m=Number(match[2]);
-  const d=Number(match[3]);
+  if(!m)return null;
 
-  const check=new Date(y,m-1,d);
+  const y=+m[1];
+  const month=+m[2];
+  const day=+m[3];
+
+  const d=new Date(y,month-1,day);
 
   if(
-    check.getFullYear()!==y ||
-    check.getMonth()+1!==m ||
-    check.getDate()!==d
+    d.getFullYear()!==y ||
+    d.getMonth()+1!==month ||
+    d.getDate()!==day
   )return null;
 
-  return {y,m,d};
+  return {y,m:month,d:day};
 }
 
-// =====================================
-// PERHITUNGAN BULAN PARSIAL
-// =====================================
+// ======================================
+// ATURAN PAK INTEGRASI
+// ======================================
 
-function months(year,date){
+// TMT sampai 31 Desember 2022:
+// PAK Integrasi digunakan.
+//
+// TMT mulai 1 Januari 2023:
+// PAK Integrasi tidak digunakan.
+// AK awal otomatis 0.
+
+function isOldTmt(date){
+  return date.y<=2022;
+}
+
+// ======================================
+// JUMLAH BULAN KONVERSI SKP
+// ======================================
+
+function monthsInYear(year,date){
   const limit=year===2026?9:12;
 
   if(date.y<2023)return limit;
   if(date.y>year)return 0;
   if(date.y<year)return limit;
 
-  const firstMonth=date.m+(date.d>1?1:0);
+  const start=date.m+(date.d>1?1:0);
 
-  return Math.max(
-    0,
-    Math.min(limit,limit-firstMonth+1)
+  return Math.max(0,limit-start+1);
+}
+
+// ======================================
+// TAMPILAN HASIL
+// ======================================
+
+function hideResult(){
+  $('hasil').classList.add('hidden');
+  $('kosong').classList.remove('hidden');
+}
+
+function updateTmt(){
+  const date=parseDate($('tmt').value);
+
+  // Kolom PAK hanya untuk TMT sebelum 2023.
+  $('pakBox').classList.toggle(
+    'hidden',
+    !date||!isOldTmt(date)
   );
-}
-
-function invalidate(){
-  $("hasil").classList.add("hidden");
-  $("belum").classList.remove("hidden");
-}
-
-function syncFields(){
-  const date=parseDate($("tmt").value);
-  const after=date&&(date.y>=2023);
-
-  $("integrasiBox").classList.toggle("hidden",!date||after);
-  $("awalBox").classList.toggle("hidden",!date||!after);
 
   for(const year of [2023,2024,2025,2026]){
-    const count=date?months(year,date):0;
+    const count=date?monthsInYear(year,date):0;
+    const input=$('skp'+year);
 
-    $("skp"+year).disabled=!date||count===0;
-    $("bulan"+year).textContent=date?(count+"/12"):"—";
+    input.disabled=count===0;
 
-    if(count===0){
-      $("skp"+year).value="";
-    }
+    if(count===0)input.value='';
+
+    $('bulan'+year).textContent=
+      date?count+'/12':'—';
   }
-  invalidate();
+
+  hideResult();
 }
 
-// =====================================
-// INISIALISASI FORMULIR
-// =====================================
+// ======================================
+// INISIALISASI
+// ======================================
 
-function init(){
-  $("jabatan").innerHTML=
+function initialize(){
+
+  $('jabatan').innerHTML=
     '<option value="">Pilih jenjang</option>'+
     [...new Set(DATA.map(x=>x.j))]
-      .map(j=>`<option value="${j}">${j}</option>`)
-      .join("");
+      .map(x=>`<option>${x}</option>`)
+      .join('');
 
-  $("skpContainer").innerHTML=
+  $('skpContainer').innerHTML=
     [2023,2024,2025,2026].map(y=>`
       <div class="skp">
         <label for="skp${y}">
-          ${y===2026?"2026 TW III":y}
+          ${y===2026?'2026 TW III':y}
         </label>
-        <select id="skp${y}">
+
+        <select id="skp${y}" disabled>
           <option value="">Pilih predikat</option>
-          ${RATING.map(r=>`
-            <option value="${r.factor}">${r.name}</option>
-          `).join("")}
+          ${PREDIKAT.map(p=>`
+            <option value="${p[1]}">${p[0]}</option>
+          `).join('')}
         </select>
-        <div class="period" id="bulan${y}">—</div>
+
+        <span class="period" id="bulan${y}">—</span>
       </div>
-    `).join("");
+    `).join('');
 
-  $("jabatan").addEventListener("change",()=>{
-    const list=DATA.filter(x=>x.j===$("jabatan").value);
+  $('jabatan').addEventListener('change',()=>{
+    const rows=DATA.filter(
+      x=>x.j===$('jabatan').value
+    );
 
-    $("golongan").innerHTML=
+    $('golongan').innerHTML=
       '<option value="">Pilih golongan</option>'+
-      list.map(x=>`
-        <option value="${x.g}">${x.g}</option>
-      `).join("");
+      rows.map(x=>`<option>${x.g}</option>`).join('');
 
-    invalidate();
+    hideResult();
   });
 
-  $("tmt").addEventListener("change",syncFields);
-  $("tmt").addEventListener("input",syncFields);
+  $('tmt').addEventListener('change',updateTmt);
+  $('tmt').addEventListener('input',updateTmt);
 
-  [
-    "golongan","integrasi","akAwal",
-    "skp2023","skp2024","skp2025","skp2026"
-  ].forEach(id=>{
-    const event=(id.startsWith("skp")||id==="golongan")
-      ?"change":"input";
+  $('golongan').addEventListener('change',hideResult);
+  $('pak').addEventListener('input',hideResult);
 
-    $(id).addEventListener(event,invalidate);
-  });
+  for(const y of [2023,2024,2025,2026]){
+    $('skp'+y).addEventListener('change',hideResult);
+  }
 
-  $("hitung").addEventListener("click",calculate);
-  $("reset").addEventListener("click",resetAll);
-  $("salin").addEventListener("click",copyResult);
+  $('hitung').addEventListener('click',calculate);
+  $('reset').addEventListener('click',resetAll);
+  $('salin').addEventListener('click',copyResult);
 
-  syncFields();
+  updateTmt();
 }
 
-function validAmount(id){
-  const raw=$(id).value.trim();
-
-  return raw!=="" &&
-    Number.isFinite(Number(raw)) &&
-    Number(raw)>=0;
-}
-
-// =====================================
-// PERHITUNGAN TOTAL ANGKA KREDIT
-// =====================================
+// ======================================
+// HITUNG TOTAL ANGKA KREDIT
+// ======================================
 
 function calculate(){
-  const job=$("jabatan").value;
-  const gol=$("golongan").value;
-  const date=parseDate($("tmt").value);
+
+  const job=$('jabatan').value;
+  const rank=$('golongan').value;
+  const tmt=$('tmt').value;
+  const date=parseDate(tmt);
 
   if(!job){
-    alert("Pilih Jenjang Fungsional.");
+    alert('Pilih Jenjang Fungsional.');
     return;
   }
 
-  if(!date){
-    alert("TMT Fungsional belum diisi atau tanggal tidak valid.");
+  if(
+    !date ||
+    tmt<'1950-01-01' ||
+    tmt>'2026-09-30'
+  ){
+    alert(
+      'Masukkan TMT Fungsional yang valid sampai 30 September 2026.'
+    );
     return;
   }
 
-  if($("tmt").value>"2026-09-30"){
-    alert("TMT melewati periode penilaian 2026 TW III.");
+  if(!rank){
+    alert('Pilih Pangkat / Golongan.');
     return;
   }
 
-  if(!gol){
-    alert("Pilih Pangkat / Golongan.");
-    return;
-  }
-
-  const row=DATA.find(x=>x.j===job&&x.g===gol);
+  const row=DATA.find(x=>
+    x.j===job && x.g===rank
+  );
 
   if(!row){
-    alert("Kombinasi jenjang dan golongan tidak ditemukan.");
+    alert('Jenjang dan golongan tidak cocok.');
     return;
   }
 
-  const initialId=date.y>=2023?"akAwal":"integrasi";
+  const old=isOldTmt(date);
 
-  if(!validAmount(initialId)){
-    alert("Isi nilai AK awal (boleh 0).");
-    $(initialId).focus();
+  // Hanya TMT sebelum 2023 yang wajib mengisi PAK.
+  if(old && (
+    $('pak').value.trim()==='' ||
+    !Number.isFinite(Number($('pak').value)) ||
+    Number($('pak').value)<0
+  )){
+    alert('Isi nilai PAK Integrasi (boleh 0).');
+    $('pak').focus();
     return;
   }
 
-  let total=Number($(initialId).value);
-  const values={};
+  // TMT mulai 2023: AK awal = 0.
+  const pak=old?Number($('pak').value):0;
+
+  let total=pak;
+  const perYear={};
 
   for(const year of [2023,2024,2025,2026]){
-    const n=months(year,date);
-    const input=$("skp"+year);
 
-    if(n>0&&input.value===""){
+    const n=monthsInYear(year,date);
+    const input=$('skp'+year);
+
+    if(n>0 && input.value===''){
       alert(
-        "Pilih predikat SKP "+
-        (year===2026?"2026 TW III":year)+"."
+        'Pilih nilai SKP '+
+        (year===2026?'2026 TW III':year)+'.'
       );
       input.focus();
       return;
     }
 
-    values[year]=n>0
+    const ak=n>0
       ?row.k*Number(input.value)*n/12
       :0;
 
-    total+=values[year];
+    perYear[year]=ak;
+    total+=ak;
   }
 
-  $("hasilAwal").textContent=
-    fmt(Number($(initialId).value));
+  // Baris PAK hanya ditampilkan jika TMT lama.
+  $('pakLine').classList.toggle('hidden',!old);
 
-  [2023,2024,2025,2026].forEach(y=>{
-    $("hasil"+y).textContent=fmt(values[y]);
-  });
+  if(old){
+    $('hasilPak').textContent=fmt(pak);
+  }
 
-  $("total").textContent=fmt(total);
+  for(const year of [2023,2024,2025,2026]){
+    $('hasil'+year).textContent=fmt(perYear[year]);
+  }
 
-  makeAdvice(row,total);
+  $('total').textContent=fmt(total);
 
-  $("belum").classList.add("hidden");
-  $("hasil").classList.remove("hidden");
+  showAdvice(row,total);
+
+  $('kosong').classList.add('hidden');
+  $('hasil').classList.remove('hidden');
 
   if(window.innerWidth<=820){
-    $("hasilCard").scrollIntoView({
-      behavior:"smooth",
-      block:"start"
+    $('hasilCard').scrollIntoView({
+      behavior:'smooth',
+      block:'start'
     });
   }
 }
 
-// =====================================
+// ======================================
 // ANJURAN OTOMATIS
-// =====================================
+// ======================================
 
-function makeAdvice(row,total){
-  const box=$("anjuran");
-  const title=$("judulAnjuran");
-  const desc=$("teksAnjuran");
-  const bar=$("progres");
+function showAdvice(row,total){
 
-  box.className="recommend";
+  const box=$('anjuran');
+  const title=$('judul');
+  const desc=$('deskripsi');
+  const bar=$('bar');
 
-  let target=null;
-  let destination="";
-  let kind="pangkat";
+  box.className='advice';
 
-  // Penyelia III/d tidak memiliki jenjang
-  // lebih tinggi dalam kategori keterampilan.
-  if(row.j==="Penyelia"&&row.g.includes("III/d")){
-    box.classList.add("neutral");
+  // KHUSUS PENYELIA III/d:
+  // Berapa pun AK, tidak naik jenjang.
+  if(
+    row.j==='Penyelia' &&
+    row.g.includes('III/d')
+  ){
+    box.classList.add('neutral');
 
     title.textContent=
-      "Belum dapat naik ke jenjang fungsional lebih tinggi";
+      'Belum dapat naik ke jenjang fungsional lebih tinggi';
 
     desc.textContent=
-      "Penyelia III/d adalah jenjang tertinggi "+
-      "kategori keterampilan, berapa pun angka kreditnya. "+
-      "Peralihan ke kategori keahlian melalui "+
-      "persyaratan tersendiri.";
+      'Penyelia III/d merupakan jenjang tertinggi '+
+      'kategori keterampilan, berapa pun jumlah AK. '+
+      'Perpindahan ke kategori keahlian mengikuti '+
+      'persyaratan tersendiri.';
 
-    bar.style.width="100%";
-    bar.style.background="#94a3b8";
+    bar.style.width='100%';
+    bar.style.background='#94a3b8';
+
     return;
   }
 
-  // Penyelia III/c menuju pangkat III/d
-  if(row.j==="Penyelia"){
+  let target;
+  let destination;
+  let type='pangkat';
+
+  // Penyelia III/c menuju III/d.
+  if(row.j==='Penyelia'){
     target=200;
-    destination="Penata Tk 1 III/d";
+    destination='Penata Tk 1 III/d';
   }else{
-    const same=DATA.find(x=>
-      x.j===row.j && x.min>row.min
+
+    const nextRank=DATA.find(x=>
+      x.j===row.j &&
+      x.min>row.min
     );
 
-    if(same){
-      target=same.min;
-      destination=same.g;
-    }else if(NEXT[row.j]){
-      target=NEXT[row.j][1];
-      destination=NEXT[row.j][0];
-      kind="jenjang";
+    if(nextRank){
+      target=nextRank.min;
+      destination=nextRank.g;
+    }
+    else if(NEXT[row.j]){
+      [destination,target]=NEXT[row.j];
+      type='jenjang';
     }
   }
 
-  if(target===null){
-    box.classList.add("neutral");
+  if(target==null){
+    box.classList.add('neutral');
 
-    title.textContent="Periksa kenaikan berikutnya";
+    title.textContent=
+      'Periksa syarat kenaikan berikutnya';
+
     desc.textContent=
-      "Tidak ada target lanjutan dalam tabel simulasi.";
+      'Belum ada acuan target berikutnya dalam tabel.';
 
-    bar.style.width="100%";
-    bar.style.background="#94a3b8";
+    bar.style.width='100%';
+    bar.style.background='#94a3b8';
     return;
   }
 
-  const short=Math.max(0,target-total);
+  const kurang=Math.max(0,target-total);
 
-  if(short<=0){
-    box.classList.add("good");
+  if(kurang===0){
 
-    title.textContent="Angka kredit sudah mencukupi";
+    box.classList.add('good');
+
+    title.textContent=
+      'Angka Kredit Sudah Mencukupi';
 
     desc.textContent=
-      `Total ${fmt(total)} AK mencapai acuan `+
+      `Total ${fmt(total)} AK memenuhi acuan `+
       `${fmt(target)} AK untuk dipertimbangkan `+
-      `naik ${kind} ke ${destination}. `+
-      `Periksa juga persyaratan kepegawaiannya.`;
+      `naik ${type} ke ${destination}. `+
+      `Tetap periksa syarat administrasi.`;
+
   }else{
+
     title.textContent=
-      `Kurang ${fmt(short)} AK menuju ${destination}`;
+      `Kurang ${fmt(kurang)} AK menuju ${destination}`;
 
     desc.textContent=
       `Total saat ini ${fmt(total)} AK, `+
       `dari target simulasi ${fmt(target)} AK `+
-      `untuk kenaikan ${kind}.`;
+      `untuk kenaikan ${type}.`;
   }
 
   bar.style.width=
-    Math.min(100,total/target*100)+"%";
+    Math.min(100,total/target*100)+'%';
 
   bar.style.background=
-    short<=0?"#13a474":"#f59e0b";
+    kurang===0?'#119b6c':'#f59e0b';
 }
 
-// =====================================
-// KOSONGKAN FORMULIR
-// =====================================
+// ======================================
+// RESET FORMULIR
+// ======================================
 
 function resetAll(){
-  $("jabatan").value="";
-  $("tmt").value="";
 
-  $("golongan").innerHTML=
+  $('jabatan').value='';
+  $('tmt').value='';
+  $('pak').value='';
+
+  $('golongan').innerHTML=
     '<option value="">Pilih golongan</option>';
 
-  $("integrasi").value="";
-  $("akAwal").value="";
-
   for(const y of [2023,2024,2025,2026]){
-    $("skp"+y).value="";
+    $('skp'+y).value='';
   }
 
-  syncFields();
+  updateTmt();
 }
 
-// =====================================
-// SALIN HASIL PERHITUNGAN
-// =====================================
+// ======================================
+// SALIN HASIL
+// ======================================
 
 function copyResult(){
-  const txt=[
-    "HASIL ANGKA KREDIT",
-    `Jenjang: ${$("jabatan").value}`,
-    `TMT: ${$("tmt").value}`,
-    `Golongan: ${$("golongan").value}`,
-    `AK awal: ${$("hasilAwal").textContent}`,
-    ...[2023,2024,2025,2026].map(y=>
-      `SKP ${y}${y===2026?" TW III":""}: `+
-      $("hasil"+y).textContent
-    ),
-    `TOTAL: ${$("total").textContent} AK`,
-    `ANJURAN: ${$("judulAnjuran").textContent}`,
-    $("teksAnjuran").textContent
-  ].join("\n");
 
-  if(navigator.clipboard&&window.isSecureContext){
+  const date=parseDate($('tmt').value);
+
+  const lines=[
+    'HASIL ANGKA KREDIT',
+    `Jenjang: ${$('jabatan').value}`,
+    `TMT: ${$('tmt').value}`,
+    `Pangkat: ${$('golongan').value}`
+  ];
+
+  if(date && isOldTmt(date)){
+    lines.push(
+      `PAK Integrasi: ${$('hasilPak').textContent}`
+    );
+  }
+
+  for(const y of [2023,2024,2025,2026]){
+    lines.push(
+      `SKP ${y}${y===2026?' TW III':''}: `+
+      $('hasil'+y).textContent
+    );
+  }
+
+  lines.push(
+    `TOTAL: ${$('total').textContent} AK`,
+    'ANJURAN: '+$('judul').textContent,
+    $('deskripsi').textContent
+  );
+
+  const txt=lines.join('\n');
+
+  if(navigator.clipboard && window.isSecureContext){
     navigator.clipboard.writeText(txt).then(
-      ()=>alert("Hasil disalin."),
-      ()=>alert("Gagal menyalin. Periksa izin browser.")
+      ()=>alert('Hasil disalin.'),
+      ()=>fallbackCopy(txt)
     );
   }else{
-    const a=document.createElement("textarea");
-    a.value=txt;
-    a.style.position="fixed";
-    a.style.opacity="0";
-
-    document.body.appendChild(a);
-    a.select();
-
-    const ok=document.execCommand("copy");
-    a.remove();
-
-    alert(ok?"Hasil disalin.":"Gagal menyalin.");
+    fallbackCopy(txt);
   }
 }
 
-init();
+function fallbackCopy(txt){
+
+  const el=document.createElement('textarea');
+
+  el.value=txt;
+  el.style.position='fixed';
+  el.style.opacity='0';
+
+  document.body.appendChild(el);
+  el.select();
+
+  const ok=document.execCommand('copy');
+
+  el.remove();
+
+  alert(
+    ok?'Hasil disalin.':'Tidak dapat menyalin hasil.'
+  );
+}
+
+initialize();
+
 </script>
 </body>
 </html>
